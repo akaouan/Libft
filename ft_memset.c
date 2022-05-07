@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaouan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 22:13:21 by akaouan           #+#    #+#             */
-/*   Updated: 2021/11/11 17:50:16 by akaouan          ###   ########.fr       */
+/*   Created: 2021/11/17 00:16:03 by akaouan           #+#    #+#             */
+/*   Updated: 2021/11/17 00:22:44 by akaouan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<stdlib.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
 	}
-	return (0);
+	return ((void *)b);
 }
-/*
-int main()
-{
-	printf("%d",ft_memcmp("hello","heklo",5));
-}*/

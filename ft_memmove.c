@@ -25,14 +25,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 		return (ft_memcpy(dst, src, len));
 }
-/*
-int main()
-{
-	char *dest;
-	char *dst;
-
-	char src[]="djaja";
-	dst = src + 3;
-	dest = ft_memmove(dst,src, 3);
-	printf("%s\n",src);
-}*/

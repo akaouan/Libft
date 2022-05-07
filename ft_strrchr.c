@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaouan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 00:16:03 by akaouan           #+#    #+#             */
-/*   Updated: 2021/11/17 00:22:44 by akaouan          ###   ########.fr       */
+/*   Created: 2021/11/03 12:00:31 by akaouan           #+#    #+#             */
+/*   Updated: 2021/11/11 17:58:31 by akaouan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include"libft.h"
 
-#include "libft.h"
-
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
-	i = 0;
-	while (i < len)
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		((unsigned char *)b)[i] = (unsigned char)c;
-		i++;
+		if (s[i] == (unsigned char)c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	return ((void *)b);
+	return (NULL);
 }
-/*
-int main()
-{
-	char a[] = "hello";
-	int b[] = {1, 2, 3, 4, 5, 6};
-
-	ft_memset(a, 'a', 3);
-	printf("Result === %s\n", a);
-	ft_memset(b , 100, 1);
-	printf("case 1 == %d\n", b[0]);
-}*/

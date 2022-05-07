@@ -45,11 +45,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	p[i] = '\0';
 	return (p);
 }
-/*
-int main()
-{
-	char *str = "i just want this part #############";
-	size_t size = 10;
-
-  	printf("%s",ft_substr(str, 5, size));
-}*/

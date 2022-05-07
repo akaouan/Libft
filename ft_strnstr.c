@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaouan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 10:39:36 by akaouan           #+#    #+#             */
-/*   Updated: 2021/11/15 11:19:15 by akaouan          ###   ########.fr       */
+/*   Created: 2021/11/10 22:14:30 by akaouan           #+#    #+#             */
+/*   Updated: 2021/11/15 11:20:33 by akaouan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include"libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *s, const char *chr, size_t len)
 {
-	char	cp;
+	size_t	i;
+	size_t	j;
 
-	cp = c;
-	while (*s)
-	{
-		if (*s == cp)
-		{
-			return ((char *)s);
-		}
-		s++;
-	}
-	if (*s == cp)
+	i = 0;
+	j = 0;
+	if (*chr == '\0')
 		return ((char *)s);
-	else
-		return (0);
+	while (s[i] && i < len)
+	{
+		if (s[i] == chr[j])
+		{
+			while (s[i + j] == chr[j] && i + j < len && chr[j])
+				j++;
+			if (!chr[j])
+				return ((char *)s + i);
+			else
+				j = 0;
+		}
+		i++;
+	}
+	return (NULL);
 }
-/*
-int main()
-{
-	printf("%s",ft_strchr("hello",'o'));
-}*/

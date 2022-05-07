@@ -95,16 +95,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ending(s, c, p));
 }
-/*
-int main()
-{
-    char *p;
-    p = "hell mate my name is mega and i will rerrr  re  er  ";
-   char **j;
-    int i;
-
-    i  = 0;
-    j = ft_split(p,' ');
-    while (j[i])
-        printf("%s\n", j[i++]);
-}*/

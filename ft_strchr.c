@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akaouan <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 12:00:31 by akaouan           #+#    #+#             */
-/*   Updated: 2021/11/11 17:58:31 by akaouan          ###   ########.fr       */
+/*   Created: 2021/11/03 10:39:36 by akaouan           #+#    #+#             */
+/*   Updated: 2021/11/15 11:19:15 by akaouan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	char	cp;
 
-	i = ft_strlen(s);
-	while (i >= 0)
+	cp = c;
+	while (*s)
 	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)&s[i]);
-		i--;
+		if (*s == cp)
+		{
+			return ((char *)s);
+		}
+		s++;
 	}
-	return (NULL);
+	if (*s == cp)
+		return ((char *)s);
+	else
+		return (0);
 }
-/*
-int main()
-{
-	char s[] = "tripouille";
-	printf("%s",ft_strrchr(s,'t' + 256));
-}*/
